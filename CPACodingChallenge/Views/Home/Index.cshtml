@@ -1,0 +1,30 @@
+﻿@model IEnumerable<CPACodingChallenge.ViewModels.OutputResult>
+
+@{
+    ViewBag.Title = "Index";
+    var currentYear = 0;
+}
+
+<h2>Result</h2>
+
+<table class="table">
+
+    @foreach (var item in Model)
+    {
+        if (item.PassedYear != currentYear)
+        {
+            currentYear = item.PassedYear;
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.PassedYear)
+                </th>
+            </tr>
+        }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+        </tr>
+    }
+
+</table>
